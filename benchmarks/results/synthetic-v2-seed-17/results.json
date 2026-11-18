@@ -1,0 +1,94 @@
+{
+  "dataset": "artifacts/dataset-v2/workload.jsonl",
+  "dataset_sha256": "865049578a32926789c96334124c38339c61f0c609eba8007318d5829e3a3039",
+  "seed": 17,
+  "workers": 2,
+  "dataset_provenance": [
+    "synthetic-v2: causal FIFO-history observations; parameterized service times and generated authorized requests"
+  ],
+  "evaluation": "held-out temporal test partition only",
+  "jobs": 720,
+  "model_checkpoints": {
+    "lightgbm": "7c8dc6549d00719b",
+    "tgn": "012b1b6623af2265"
+  },
+  "inference": {
+    "lightgbm": {
+      "total_seconds": 0.08229208300144819,
+      "seconds_per_job": 0.0001142945597242336
+    },
+    "tgn": {
+      "total_seconds": 111.57499017599912,
+      "seconds_per_job": 0.15496526413333211
+    }
+  },
+  "results": {
+    "fifo": {
+      "mean_wait_seconds": 685.00077156833,
+      "p95_wait_seconds": 1524.5999053757841,
+      "deadline_misses": 630,
+      "worker_utilization": 0.3776045797204777,
+      "peak_backlog": 507,
+      "verification_seconds": 4487.753877496437,
+      "jobs": 720,
+      "provenance": "discrete-event simulation; no live object-store or scanner operations",
+      "simulation_execution_seconds": 0.30135024999981397,
+      "inference_seconds": 0.0
+    },
+    "edf": {
+      "mean_wait_seconds": 681.3072894806282,
+      "p95_wait_seconds": 1524.5547195595354,
+      "deadline_misses": 595,
+      "worker_utilization": 0.3776022483354654,
+      "peak_backlog": 507,
+      "verification_seconds": 4487.753877496437,
+      "jobs": 720,
+      "provenance": "discrete-event simulation; no live object-store or scanner operations",
+      "simulation_execution_seconds": 0.18743354200159956,
+      "inference_seconds": 0.0
+    },
+    "rule": {
+      "mean_wait_seconds": 681.2680261673123,
+      "p95_wait_seconds": 1524.569801221769,
+      "deadline_misses": 611,
+      "worker_utilization": 0.3776026667877484,
+      "peak_backlog": 506,
+      "verification_seconds": 4487.753877496437,
+      "jobs": 720,
+      "provenance": "discrete-event simulation; no live object-store or scanner operations",
+      "simulation_execution_seconds": 0.25375424999947427,
+      "inference_seconds": 0.0
+    },
+    "lightgbm": {
+      "mean_wait_seconds": 676.6810027709487,
+      "p95_wait_seconds": 1524.4765147184044,
+      "deadline_misses": 627,
+      "worker_utilization": 0.3776072177984668,
+      "peak_backlog": 503,
+      "verification_seconds": 4487.753877496438,
+      "jobs": 720,
+      "provenance": "discrete-event simulation; no live object-store or scanner operations",
+      "simulation_execution_seconds": 0.2397413750004489,
+      "inference_seconds": 0.08229208300144819
+    },
+    "tgn": {
+      "mean_wait_seconds": 685.0393239531659,
+      "p95_wait_seconds": 1524.6027597272514,
+      "deadline_misses": 633,
+      "worker_utilization": 0.3776047610978591,
+      "peak_backlog": 507,
+      "verification_seconds": 4487.753877496437,
+      "jobs": 720,
+      "provenance": "discrete-event simulation; no live object-store or scanner operations",
+      "simulation_execution_seconds": 0.26188558299872966,
+      "inference_seconds": 111.57499017599912
+    }
+  },
+  "limitations": [
+    "Synthetic service times and requests; no real-world generalization claim.",
+    "Predictions are cached at arrival for both learned schedulers; inference overhead is measured separately and is not added to simulated job delay.",
+    "Waiting time is verification queue delay, not a measured user download delay.",
+    "Single-seed comparison; no confidence interval or superiority claim.",
+    "This scheduling simulation does not establish policy-invalid release counts under live faults."
+  ]
+}

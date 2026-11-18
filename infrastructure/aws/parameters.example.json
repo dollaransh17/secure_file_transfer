@@ -1,0 +1,11 @@
+[
+  {"ParameterKey":"ProjectName","ParameterValue":"prooflane"},
+  {"ParameterKey":"DomainName","ParameterValue":"files.example.com"},
+  {"ParameterKey":"CertificateArn","ParameterValue":"REPLACE_WITH_EXISTING_REGIONAL_ACM_CERTIFICATE_ARN"},
+  {"ParameterKey":"ApiImage","ParameterValue":"REPLACE_WITH_DIGEST_PINNED_ECR_API_IMAGE"},
+  {"ParameterKey":"WebImage","ParameterValue":"REPLACE_WITH_DIGEST_PINNED_ECR_WEB_IMAGE"},
+  {"ParameterKey":"WorkerImage","ParameterValue":""},
+  {"ParameterKey":"Architecture","ParameterValue":"ARM64"},
+  {"ParameterKey":"AnthropicSecretArn","ParameterValue":""},
+  {"ParameterKey":"AnthropicModel","ParameterValue":"claude-haiku-4-5-20251001"}
+]

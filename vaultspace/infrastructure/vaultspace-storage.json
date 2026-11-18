@@ -1,0 +1,79 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Vaultspace phase 1: private encrypted S3 storage and least-privilege backend permissions. No hosting or credentials are created.",
+  "Parameters": {
+    "CreateLocalDemoUser": {
+      "Type": "String",
+      "Default": "false",
+      "AllowedValues": ["true", "false"],
+      "Description": "Set true only if you need a dedicated IAM user for local development. Access keys must be created separately. Otherwise attach the output policy to your existing development role/permission set."
+    }
+  },
+  "Conditions": {
+    "MakeLocalDemoUser": {"Fn::Equals": [{"Ref": "CreateLocalDemoUser"}, "true"]}
+  },
+  "Resources": {
+    "FilesBucket": {
+      "Type": "AWS::S3::Bucket",
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain",
+      "Properties": {
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "OwnershipControls": {"Rules": [{"ObjectOwnership": "BucketOwnerEnforced"}]},
+        "BucketEncryption": {"ServerSideEncryptionConfiguration": [{"ServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]},
+        "Tags": [{"Key": "Project", "Value": "Vaultspace"}, {"Key": "Environment", "Value": "StudentDemo"}]
+      }
+    },
+    "RequireTlsPolicy": {
+      "Type": "AWS::S3::BucketPolicy",
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain",
+      "Properties": {
+        "Bucket": {"Ref": "FilesBucket"},
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [{
+            "Sid": "DenyInsecureTransport",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [{"Fn::GetAtt": ["FilesBucket", "Arn"]}, {"Fn::Sub": "${FilesBucket.Arn}/*"}],
+            "Condition": {"Bool": {"aws:SecureTransport": "false"}}
+          }]
+        }
+      }
+    },
+    "LocalDemoUser": {
+      "Type": "AWS::IAM::User",
+      "Condition": "MakeLocalDemoUser",
+      "Properties": {"Tags": [{"Key": "Project", "Value": "Vaultspace"}]}
+    },
+    "BackendStoragePolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "Description": "Vaultspace backend access limited to objects/ in this stack's bucket; no infrastructure administration.",
+        "Users": {"Fn::If": ["MakeLocalDemoUser", [{"Ref": "LocalDemoUser"}], {"Ref": "AWS::NoValue"}]},
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {"Sid": "ReadBucketRegion", "Effect": "Allow", "Action": "s3:GetBucketLocation", "Resource": {"Fn::GetAtt": ["FilesBucket", "Arn"]}},
+            {"Sid": "ListApplicationPrefix", "Effect": "Allow", "Action": "s3:ListBucket", "Resource": {"Fn::GetAtt": ["FilesBucket", "Arn"]}, "Condition": {"StringLike": {"s3:prefix": ["objects/", "objects/*"]}}},
+            {"Sid": "ManageApplicationObjects", "Effect": "Allow", "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"], "Resource": {"Fn::Sub": "${FilesBucket.Arn}/objects/*"}}
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "BucketName": {"Value": {"Ref": "FilesBucket"}, "Description": "Use as VAULT_S3_BUCKET when the S3 adapter is connected."},
+    "Region": {"Value": {"Ref": "AWS::Region"}},
+    "ObjectPrefix": {"Value": "objects/"},
+    "BackendPolicyArn": {"Value": {"Ref": "BackendStoragePolicy"}, "Description": "Attach to your backend role or development permission set if using existing temporary credentials."},
+    "LocalDemoUserName": {"Condition": "MakeLocalDemoUser", "Value": {"Ref": "LocalDemoUser"}, "Description": "Optional local-development identity. No password or access key is created by this template."}
+  }
+}

@@ -1,0 +1,6 @@
+strategy,mean_wait_seconds,p95_wait_seconds,deadline_misses,worker_utilization,peak_backlog,verification_seconds,jobs,provenance,simulation_execution_seconds,inference_seconds
+fifo,685.00077156833,1524.5999053757841,630,0.3776045797204777,507,4487.753877496437,720,discrete-event simulation; no live object-store or scanner operations,0.30135024999981397,0.0
+edf,681.3072894806282,1524.5547195595354,595,0.3776022483354654,507,4487.753877496437,720,discrete-event simulation; no live object-store or scanner operations,0.18743354200159956,0.0
+rule,681.2680261673123,1524.569801221769,611,0.3776026667877484,506,4487.753877496437,720,discrete-event simulation; no live object-store or scanner operations,0.25375424999947427,0.0
+lightgbm,676.6810027709487,1524.4765147184044,627,0.3776072177984668,503,4487.753877496438,720,discrete-event simulation; no live object-store or scanner operations,0.2397413750004489,0.08229208300144819
+tgn,685.0393239531659,1524.6027597272514,633,0.3776047610978591,507,4487.753877496437,720,discrete-event simulation; no live object-store or scanner operations,0.26188558299872966,111.57499017599912

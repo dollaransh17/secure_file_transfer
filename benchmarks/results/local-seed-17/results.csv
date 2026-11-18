@@ -1,0 +1,4 @@
+strategy,mean_wait_seconds,p95_wait_seconds,deadline_misses,worker_utilization,peak_backlog,verification_seconds,jobs,provenance
+fifo,1144.9012631683447,4120.5985073876545,1684,0.31108784461519784,1492,13052.450705578087,3600,discrete-event simulation; no live object-store or scanner operations
+edf,1144.9012631683447,4120.5985073876545,1684,0.31108784461519784,1492,13052.450705578087,3600,discrete-event simulation; no live object-store or scanner operations
+rule,1144.8689999234036,4120.593522753032,1684,0.3110879185310266,1492,13052.450705578087,3600,discrete-event simulation; no live object-store or scanner operations

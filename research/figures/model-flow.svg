@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="493" height="266" preserveAspectRatio="xMinYMin meet" viewBox="0 0 493 266" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="493" height="266"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-266)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="493" height="266" rx="8" ry="0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,9%,14%); fill-rule: evenodd;"/>
+			<rect x="82" y="224" width="158" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(8%,22%,35%); fill-rule: evenodd;"/>
+			<text x="94.103515625" y="243" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,486) scale(1,-1)">Authorized history and queue state</text>
+			<text x="116.17578125" y="232" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,464) scale(1,-1)">Prior events at the job cutoff</text>
+			<rect x="10" y="170" width="141" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(8%,22%,35%); fill-rule: evenodd;"/>
+			<text x="35.828125" y="189" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,378) scale(1,-1)">Temporal graph builder</text>
+			<text x="23.863281249999993" y="178" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,356) scale(1,-1)">Node type, edge type, elapsed time</text>
+			<rect x="170" y="170" width="141" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(8%,22%,35%); fill-rule: evenodd;"/>
+			<text x="209.37890625" y="189" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,378) scale(1,-1)">Tabular features</text>
+			<text x="185.26425781249998" y="178" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,356) scale(1,-1)">Eight numeric job and queue fields</text>
+			<rect x="10" y="118" width="141" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(20%,25%,32%); fill-rule: evenodd;"/>
+			<text x="32.05078125" y="137" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,274) scale(1,-1)">Bounded replay and GRU</text>
+			<text x="19.663867187499996" y="126" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,252) scale(1,-1)">Memory and two-head graph attention</text>
+			<rect x="170" y="118" width="141" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(20%,25%,32%); fill-rule: evenodd;"/>
+			<text x="199.603515625" y="137" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,274) scale(1,-1)">LightGBM regressors</text>
+			<text x="182.868359375" y="126" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,252) scale(1,-1)">One regression per prediction target</text>
+			<rect x="82" y="62" width="158" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(8%,22%,35%); fill-rule: evenodd;"/>
+			<text x="119.88671875" y="81" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,162) scale(1,-1)">Duration and demand</text>
+			<text x="103.16972656249999" y="70" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,140) scale(1,-1)">Outputs from the selected scheduler</text>
+			<rect x="82" y="14" width="158" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(8%,22%,35%); fill-rule: evenodd;"/>
+			<text x="104.541015625" y="33" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,66) scale(1,-1)">Rank eligible verification jobs</text>
+			<text x="106.7697265625" y="22" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,44) scale(1,-1)">Apply hard overrides and capacity</text>
+			<rect x="339" y="224" width="141" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(8%,22%,35%); fill-rule: evenodd;"/>
+			<text x="378.3828125" y="243" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,486) scale(1,-1)">Offline file bytes</text>
+			<text x="367.4865234375" y="232" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,464) scale(1,-1)">Five known fixture formats</text>
+			<rect x="339" y="170" width="141" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(8%,22%,35%); fill-rule: evenodd;"/>
+			<text x="373.9375" y="189" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,378) scale(1,-1)">Normalize and pad</text>
+			<text x="380.886328125" y="178" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,356) scale(1,-1)">First 65,536 bytes</text>
+			<rect x="339" y="118" width="141" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(20%,25%,32%); fill-rule: evenodd;"/>
+			<text x="363.935546875" y="137" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,274) scale(1,-1)">ByteCNN or comparator</text>
+			<text x="368.8787109375" y="126" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,252) scale(1,-1)">Learn from training labels</text>
+			<rect x="339" y="62" width="141" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(8%,22%,35%); fill-rule: evenodd;"/>
+			<text x="376.169921875" y="81" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,162) scale(1,-1)">Five output logits</text>
+			<text x="362.2763671875" y="70" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,140) scale(1,-1)">Softmax and predicted format</text>
+			<rect x="339" y="14" width="141" height="32" rx="4" ry="0" style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.45; fill: rgb(8%,22%,35%); fill-rule: evenodd;"/>
+			<text x="372.38671875" y="33" style="font-family: Arial-Bold; font-size: 8px;fill: rgb(94%,96%,98%); stroke:none;" transform="translate(0,66) scale(1,-1)">Held-out evaluation</text>
+			<text x="363.8759765625" y="22" style="font-family: Arial; font-size: 7.2px;fill: rgb(69%,80%,89%); stroke:none;" transform="translate(0,44) scale(1,-1)">40 files and per-class counts</text>
+			<path d="M 161 224 L 161 215 L 80 215 L 80 202 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="80 202, 77.8703 206.5238, 82.1297 206.5238" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 80 170 L 80 150 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="80 150, 77.8703 154.5238, 82.1297 154.5238" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 80 118 L 80 106 L 161 106 L 161 94 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="161 94, 158.8703 98.52376, 163.1297 98.52376" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 161 224 L 161 215 L 240 215 L 240 202 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="240 202, 237.8703 206.5238, 242.1297 206.5238" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 240 170 L 240 150 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="240 150, 237.8703 154.5238, 242.1297 154.5238" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 240 118 L 240 106 L 161 106 L 161 94 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="161 94, 158.8703 98.52376, 163.1297 98.52376" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 161 62 L 161 46 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="161 46, 158.8703 50.52376, 163.1297 50.52376" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 409 224 L 409 202 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="409 202, 406.8703 206.5238, 411.1297 206.5238" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 409 170 L 409 150 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="409 150, 406.8703 154.5238, 411.1297 154.5238" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 409 118 L 409 94 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="409 94, 406.8703 98.52376, 411.1297 98.52376" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+			<path d="M 409 62 L 409 46 " style="stroke: rgb(69%,80%,89%); stroke-linecap: butt; stroke-width: 0.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="409 46, 406.8703 50.52376, 411.1297 50.52376" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(69%,80%,89%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

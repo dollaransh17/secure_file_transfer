@@ -1,0 +1,9 @@
+{
+  "seed": 17,
+  "files": 200,
+  "templates": 20,
+  "schedules": 10,
+  "dataset_sha256": "865049578a32926789c96334124c38339c61f0c609eba8007318d5829e3a3039",
+  "provenance": "synthetic-v2 causal lifecycle data",
+  "input_schema": 2
+}

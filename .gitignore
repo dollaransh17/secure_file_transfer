@@ -1,0 +1,41 @@
+# Local environment, private cloud settings and secrets
+.env
+.env.*
+*.env
+*.env.*
+.aws/
+.ssh/
+*.pem
+*.key
+*.p12
+*.pfx
+*.kubeconfig
+*.tfstate*
+credentials
+credentials.json
+secrets.json
+parameters.local.json
+.npmrc
+.netrc
+# Private data, uploaded objects, local configuration and service logs
+.data/
+.runtime/
+artifacts/
+cloud-models/
+*.db
+*.db-*
+*.sqlite*
+*.log
+# Build output and host state
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+node_modules/
+dist/
+*.tsbuildinfo
+test-results*/
+playwright-report*/
+research/scheduling/workload.jsonl

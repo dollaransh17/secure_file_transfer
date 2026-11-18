@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'./e2e',outputDir:process.env.E2E_OUTPUT_DIR||'test-results',reporter:[['list'],['json',{outputFile:process.env.E2E_JSON_REPORT||'test-results/report.json'}]],use:{baseURL:process.env.E2E_URL||'http://localhost:5173',screenshot:'only-on-failure'},projects:[{name:'desktop',use:{viewport:{width:1440,height:1000}}},{name:'mobile',use:{viewport:{width:390,height:844}}}]});

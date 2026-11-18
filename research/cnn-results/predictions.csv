@@ -1,0 +1,161 @@
+model,file,actual,predicted
+Length baseline,harmless-125.txt,txt,txt
+Length baseline,harmless-170.txt,txt,txt
+Length baseline,harmless-145.txt,txt,txt
+Length baseline,harmless-175.txt,txt,txt
+Length baseline,harmless-20.txt,txt,txt
+Length baseline,harmless-180.txt,txt,txt
+Length baseline,harmless-35.txt,txt,txt
+Length baseline,harmless-65.txt,txt,txt
+Length baseline,harmless-41.csv,csv,csv
+Length baseline,harmless-101.csv,csv,csv
+Length baseline,harmless-191.csv,csv,csv
+Length baseline,harmless-96.csv,csv,txt
+Length baseline,harmless-36.csv,csv,csv
+Length baseline,harmless-136.csv,csv,csv
+Length baseline,harmless-56.csv,csv,txt
+Length baseline,harmless-61.csv,csv,txt
+Length baseline,harmless-2.json,json,json
+Length baseline,harmless-117.json,json,txt
+Length baseline,harmless-102.json,json,txt
+Length baseline,harmless-97.json,json,json
+Length baseline,harmless-177.json,json,txt
+Length baseline,harmless-82.json,json,json
+Length baseline,harmless-127.json,json,txt
+Length baseline,harmless-197.json,json,txt
+Length baseline,harmless-178.pdf,pdf,pdf
+Length baseline,harmless-188.pdf,pdf,pdf
+Length baseline,harmless-128.pdf,pdf,pdf
+Length baseline,harmless-38.pdf,pdf,pdf
+Length baseline,harmless-148.pdf,pdf,pdf
+Length baseline,harmless-118.pdf,pdf,pdf
+Length baseline,harmless-98.pdf,pdf,pdf
+Length baseline,harmless-193.pdf,pdf,pdf
+Length baseline,harmless-199.png,png,png
+Length baseline,harmless-119.png,png,png
+Length baseline,harmless-44.png,png,png
+Length baseline,harmless-74.png,png,png
+Length baseline,harmless-89.png,png,png
+Length baseline,harmless-109.png,png,png
+Length baseline,harmless-94.png,png,png
+Length baseline,harmless-29.png,png,png
+ByteCNN 2D,harmless-125.txt,txt,json
+ByteCNN 2D,harmless-170.txt,txt,json
+ByteCNN 2D,harmless-145.txt,txt,json
+ByteCNN 2D,harmless-175.txt,txt,json
+ByteCNN 2D,harmless-20.txt,txt,json
+ByteCNN 2D,harmless-180.txt,txt,json
+ByteCNN 2D,harmless-35.txt,txt,json
+ByteCNN 2D,harmless-65.txt,txt,json
+ByteCNN 2D,harmless-41.csv,csv,json
+ByteCNN 2D,harmless-101.csv,csv,json
+ByteCNN 2D,harmless-191.csv,csv,json
+ByteCNN 2D,harmless-96.csv,csv,json
+ByteCNN 2D,harmless-36.csv,csv,json
+ByteCNN 2D,harmless-136.csv,csv,json
+ByteCNN 2D,harmless-56.csv,csv,json
+ByteCNN 2D,harmless-61.csv,csv,json
+ByteCNN 2D,harmless-2.json,json,json
+ByteCNN 2D,harmless-117.json,json,json
+ByteCNN 2D,harmless-102.json,json,json
+ByteCNN 2D,harmless-97.json,json,json
+ByteCNN 2D,harmless-177.json,json,json
+ByteCNN 2D,harmless-82.json,json,json
+ByteCNN 2D,harmless-127.json,json,json
+ByteCNN 2D,harmless-197.json,json,json
+ByteCNN 2D,harmless-178.pdf,pdf,pdf
+ByteCNN 2D,harmless-188.pdf,pdf,pdf
+ByteCNN 2D,harmless-128.pdf,pdf,pdf
+ByteCNN 2D,harmless-38.pdf,pdf,pdf
+ByteCNN 2D,harmless-148.pdf,pdf,pdf
+ByteCNN 2D,harmless-118.pdf,pdf,pdf
+ByteCNN 2D,harmless-98.pdf,pdf,pdf
+ByteCNN 2D,harmless-193.pdf,pdf,pdf
+ByteCNN 2D,harmless-199.png,png,png
+ByteCNN 2D,harmless-119.png,png,png
+ByteCNN 2D,harmless-44.png,png,png
+ByteCNN 2D,harmless-74.png,png,png
+ByteCNN 2D,harmless-89.png,png,png
+ByteCNN 2D,harmless-109.png,png,png
+ByteCNN 2D,harmless-94.png,png,png
+ByteCNN 2D,harmless-29.png,png,png
+Sequence CNN 1D,harmless-125.txt,txt,txt
+Sequence CNN 1D,harmless-170.txt,txt,txt
+Sequence CNN 1D,harmless-145.txt,txt,txt
+Sequence CNN 1D,harmless-175.txt,txt,txt
+Sequence CNN 1D,harmless-20.txt,txt,txt
+Sequence CNN 1D,harmless-180.txt,txt,txt
+Sequence CNN 1D,harmless-35.txt,txt,txt
+Sequence CNN 1D,harmless-65.txt,txt,txt
+Sequence CNN 1D,harmless-41.csv,csv,csv
+Sequence CNN 1D,harmless-101.csv,csv,csv
+Sequence CNN 1D,harmless-191.csv,csv,csv
+Sequence CNN 1D,harmless-96.csv,csv,csv
+Sequence CNN 1D,harmless-36.csv,csv,csv
+Sequence CNN 1D,harmless-136.csv,csv,csv
+Sequence CNN 1D,harmless-56.csv,csv,csv
+Sequence CNN 1D,harmless-61.csv,csv,csv
+Sequence CNN 1D,harmless-2.json,json,txt
+Sequence CNN 1D,harmless-117.json,json,json
+Sequence CNN 1D,harmless-102.json,json,json
+Sequence CNN 1D,harmless-97.json,json,json
+Sequence CNN 1D,harmless-177.json,json,json
+Sequence CNN 1D,harmless-82.json,json,json
+Sequence CNN 1D,harmless-127.json,json,json
+Sequence CNN 1D,harmless-197.json,json,json
+Sequence CNN 1D,harmless-178.pdf,pdf,pdf
+Sequence CNN 1D,harmless-188.pdf,pdf,pdf
+Sequence CNN 1D,harmless-128.pdf,pdf,pdf
+Sequence CNN 1D,harmless-38.pdf,pdf,pdf
+Sequence CNN 1D,harmless-148.pdf,pdf,pdf
+Sequence CNN 1D,harmless-118.pdf,pdf,pdf
+Sequence CNN 1D,harmless-98.pdf,pdf,pdf
+Sequence CNN 1D,harmless-193.pdf,pdf,pdf
+Sequence CNN 1D,harmless-199.png,png,png
+Sequence CNN 1D,harmless-119.png,png,png
+Sequence CNN 1D,harmless-44.png,png,png
+Sequence CNN 1D,harmless-74.png,png,png
+Sequence CNN 1D,harmless-89.png,png,png
+Sequence CNN 1D,harmless-109.png,png,png
+Sequence CNN 1D,harmless-94.png,png,png
+Sequence CNN 1D,harmless-29.png,png,png
+Separable CNN 2D,harmless-125.txt,txt,json
+Separable CNN 2D,harmless-170.txt,txt,json
+Separable CNN 2D,harmless-145.txt,txt,json
+Separable CNN 2D,harmless-175.txt,txt,json
+Separable CNN 2D,harmless-20.txt,txt,json
+Separable CNN 2D,harmless-180.txt,txt,json
+Separable CNN 2D,harmless-35.txt,txt,json
+Separable CNN 2D,harmless-65.txt,txt,json
+Separable CNN 2D,harmless-41.csv,csv,json
+Separable CNN 2D,harmless-101.csv,csv,json
+Separable CNN 2D,harmless-191.csv,csv,json
+Separable CNN 2D,harmless-96.csv,csv,json
+Separable CNN 2D,harmless-36.csv,csv,json
+Separable CNN 2D,harmless-136.csv,csv,json
+Separable CNN 2D,harmless-56.csv,csv,json
+Separable CNN 2D,harmless-61.csv,csv,json
+Separable CNN 2D,harmless-2.json,json,json
+Separable CNN 2D,harmless-117.json,json,json
+Separable CNN 2D,harmless-102.json,json,json
+Separable CNN 2D,harmless-97.json,json,json
+Separable CNN 2D,harmless-177.json,json,json
+Separable CNN 2D,harmless-82.json,json,json
+Separable CNN 2D,harmless-127.json,json,json
+Separable CNN 2D,harmless-197.json,json,json
+Separable CNN 2D,harmless-178.pdf,pdf,pdf
+Separable CNN 2D,harmless-188.pdf,pdf,pdf
+Separable CNN 2D,harmless-128.pdf,pdf,pdf
+Separable CNN 2D,harmless-38.pdf,pdf,pdf
+Separable CNN 2D,harmless-148.pdf,pdf,pdf
+Separable CNN 2D,harmless-118.pdf,pdf,pdf
+Separable CNN 2D,harmless-98.pdf,pdf,pdf
+Separable CNN 2D,harmless-193.pdf,pdf,pdf
+Separable CNN 2D,harmless-199.png,png,png
+Separable CNN 2D,harmless-119.png,png,png
+Separable CNN 2D,harmless-44.png,png,png
+Separable CNN 2D,harmless-74.png,png,png
+Separable CNN 2D,harmless-89.png,png,png
+Separable CNN 2D,harmless-109.png,png,png
+Separable CNN 2D,harmless-94.png,png,png
+Separable CNN 2D,harmless-29.png,png,png

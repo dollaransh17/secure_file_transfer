@@ -1,0 +1,4 @@
+{
+  "zod": "4.6.7",
+  "@hookform/resolvers": "7.0.6"
+}

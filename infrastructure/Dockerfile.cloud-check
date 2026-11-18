@@ -1,0 +1,5 @@
+FROM python:3.12-slim
+RUN pip install --no-cache-dir 'cfn-lint>=1,<2'
+WORKDIR /work
+COPY infrastructure/aws /work/aws
+CMD ["cfn-lint", "aws/template.json", "aws/repositories.json", "aws/minimal-storage.json"]

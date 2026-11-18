@@ -1,0 +1,15 @@
+# Optional: after building the research image and training compatible models,
+# restart only the verification workers using the ML-enabled image.
+services:
+  worker:
+    image: prooflane-research:local
+    environment:
+      OMP_NUM_THREADS: 1
+      MKL_NUM_THREADS: 1
+      OPENBLAS_NUM_THREADS: 1
+  worker-2:
+    image: prooflane-research:local
+    environment:
+      OMP_NUM_THREADS: 1
+      MKL_NUM_THREADS: 1
+      OPENBLAS_NUM_THREADS: 1

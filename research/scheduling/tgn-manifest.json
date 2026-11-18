@@ -1,0 +1,92 @@
+{
+  "input_schema": 2,
+  "max_context_events": 128,
+  "method": "tgn",
+  "seed": 17,
+  "dataset_sha256": "865049578a32926789c96334124c38339c61f0c609eba8007318d5829e3a3039",
+  "features": [
+    "log_size",
+    "age",
+    "deadline_remaining",
+    "previous_duration",
+    "recent_authorized_demand",
+    "queue_length",
+    "attempts",
+    "worker_capacity"
+  ],
+  "horizon": 300,
+  "memory": true,
+  "graph": true,
+  "split_sizes": [
+    1800,
+    240,
+    720
+  ],
+  "metrics": {
+    "duration_mae": 4.296863162775983,
+    "duration_rmse": 5.286755367550948,
+    "demand_mae": 118.81234824243519,
+    "demand_bias": -118.74660159067975,
+    "prediction_seconds_per_job": 0.14840628950141257
+  },
+  "logs": [
+    {
+      "epoch": 0,
+      "training_loss": 0.09397711566343787,
+      "validation_loss": 46.56985523296154
+    },
+    {
+      "epoch": 1,
+      "training_loss": 0.09165105846089217,
+      "validation_loss": 54.24457368446148
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.09143181377217438,
+      "validation_loss": 34.94275502257304
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.09147041223231807,
+      "validation_loss": 32.75577041872388
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.09040770257924628,
+      "validation_loss": 33.56490123179612
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.0912280430847184,
+      "validation_loss": 28.543491476548066
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.09124160104899044,
+      "validation_loss": 28.834595098874612
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.09029164290269061,
+      "validation_loss": 33.24832758614917
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.0897577194252032,
+      "validation_loss": 31.34557502361983
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.09118827040236081,
+      "validation_loss": 31.261012957365878
+    }
+  ],
+  "limitation": "Synthetic targets if input provenance is synthetic; no real-world generalization established.",
+  "checkpoints": {
+    "weights.pt": "aea1e5ea20b5f83faa464a941f27788e97d762bd5b5670c425ea20e9be363d99"
+  },
+  "model_version": "012b1b6623af2265",
+  "provenance": [
+    "synthetic-v2: causal FIFO-history observations; parameterized service times and generated authorized requests"
+  ]
+}

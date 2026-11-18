@@ -1,0 +1,18 @@
+{
+  "edf": [
+    "B",
+    "A"
+  ],
+  "lightgbm": [
+    "A",
+    "B"
+  ],
+  "tgn": [
+    "A",
+    "B"
+  ],
+  "urgent_override": [
+    "B",
+    "A"
+  ]
+}

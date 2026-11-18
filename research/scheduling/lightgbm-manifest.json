@@ -1,0 +1,52 @@
+{
+  "input_schema": 2,
+  "max_context_events": 128,
+  "method": "lightgbm",
+  "seed": 17,
+  "dataset_sha256": "865049578a32926789c96334124c38339c61f0c609eba8007318d5829e3a3039",
+  "features": [
+    "log_size",
+    "age",
+    "deadline_remaining",
+    "previous_duration",
+    "recent_authorized_demand",
+    "queue_length",
+    "attempts",
+    "worker_capacity"
+  ],
+  "horizon": 300,
+  "memory": true,
+  "graph": true,
+  "split_sizes": [
+    1800,
+    240,
+    720
+  ],
+  "metrics": {
+    "duration_mae": 5.054277557940973,
+    "duration_rmse": 6.049217250787989,
+    "demand_mae": 125.21930792377559,
+    "demand_bias": -125.21930792377559,
+    "prediction_seconds_per_job": 1.1508563889290397e-05
+  },
+  "logs": [
+    {
+      "validation": {
+        "duration_mae": 4.905519361478569,
+        "duration_rmse": 5.987024562910844,
+        "demand_mae": 33.99144720993948,
+        "demand_bias": -33.98980216951805,
+        "prediction_seconds_per_job": 0.0
+      }
+    }
+  ],
+  "limitation": "Synthetic targets if input provenance is synthetic; no real-world generalization established.",
+  "checkpoints": {
+    "head-0.txt": "1745b0fc7b0c6cfe3b62ca72a8401234d0630f9438aeba194fb60359dff4b6f1",
+    "head-1.txt": "9c739b3e75029193e5a411c61b3a6b9b8320e74d2a9ee5cefdbd69293eea5761"
+  },
+  "model_version": "7c8dc6549d00719b",
+  "provenance": [
+    "synthetic-v2: causal FIFO-history observations; parameterized service times and generated authorized requests"
+  ]
+}

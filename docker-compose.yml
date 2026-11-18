@@ -1,0 +1,140 @@
+name: prooflane
+x-api-build: &api-build
+  context: .
+  dockerfile: infrastructure/Dockerfile.api
+x-api: &api
+  image: prooflane-api:local
+  pull_policy: never
+  env_file: .env
+  environment:
+    DATABASE_URL: postgresql+psycopg://prooflane:${POSTGRES_PASSWORD}@postgres:5432/prooflane
+    REDIS_URL: redis://redis:6379/0
+    S3_ENDPOINT: http://minio:9000
+    CLAMAV_HOST: clamav
+    CLAMAV_PORT: 3310
+    PUBLIC_ORIGIN: http://localhost:${PROOFLANE_WEB_PORT:-5173}
+  depends_on:
+    postgres: {condition: service_healthy}
+    redis: {condition: service_healthy}
+    storage-init: {condition: service_completed_successfully}
+  volumes:
+    - ./artifacts:/app/artifacts
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: prooflane
+      POSTGRES_USER: prooflane
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    # Database access is private to this Compose network by default.
+    volumes: ["postgres:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U prooflane"]
+      interval: 5s
+      retries: 20
+  redis:
+    image: redis:7-alpine
+    # API/workers reach redis:6379 on the private Compose network.
+    # Host development can explicitly publish a separate port via the dev override.
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 10
+  minio:
+    image: prooflane-minio:local
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.minio
+    command: server /data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS_KEY}
+      MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY}
+    ports: ["127.0.0.1:9000:9000", "127.0.0.1:9001:9001"]
+    volumes: ["minio:/data"]
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      start_period: 15s
+      retries: 30
+  storage-init:
+    image: prooflane-api:local
+    pull_policy: never
+    env_file: .env
+    environment:
+      S3_ENDPOINT: http://minio:9000
+    depends_on:
+      minio: {condition: service_healthy}
+    command: python -m prooflane.bootstrap_storage
+  clamav:
+    # Official Debian variant publishes native arm64 and amd64 manifests.
+    image: clamav/clamav:1.5.4-debian13-slim
+    # Verification workers use clamav:3310 inside the Compose network.
+    volumes: ["clamav:/var/lib/clamav"]
+    healthcheck:
+      test: ["CMD", "clamdscan", "--ping", "1"]
+      interval: 30s
+      start_period: 180s
+      retries: 20
+  migrate:
+    <<: *api
+    command: alembic upgrade head
+  api:
+    <<: *api
+    build: *api-build
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    ports: ["127.0.0.1:${PROOFLANE_API_PORT:-8000}:8000"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      start_period: 15s
+      retries: 12
+  worker:
+    <<: *api
+    command: python -m prooflane.worker
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+      clamav: {condition: service_healthy}
+  worker-2:
+    <<: *api
+    command: python -m prooflane.worker
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+      clamav: {condition: service_healthy}
+  web:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.web
+    ports: ["127.0.0.1:${PROOFLANE_WEB_PORT:-5173}:80"]
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/api/health"]
+      interval: 5s
+      timeout: 5s
+      start_period: 10s
+      retries: 12
+  research:
+    profiles: [research]
+    image: prooflane-research:local
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.research
+    environment:
+      OMP_NUM_THREADS: 1
+      MKL_NUM_THREADS: 1
+      OPENBLAS_NUM_THREADS: 1
+    volumes:
+      - ./artifacts:/app/artifacts
+  cloud-check:
+    profiles: [cloud-check]
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.cloud-check
+
+volumes:
+  postgres:
+  minio:
+  clamav:

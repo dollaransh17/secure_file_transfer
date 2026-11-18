@@ -1,0 +1,257 @@
+authorized,current,approved,clean,bound,policy,integrity,fresh,expected,observed,reason
+0,0,0,0,0,0,0,0,0,0,Access denied
+0,0,0,0,0,0,0,1,0,0,Access denied
+0,0,0,0,0,0,1,0,0,0,Access denied
+0,0,0,0,0,0,1,1,0,0,Access denied
+0,0,0,0,0,1,0,0,0,0,Access denied
+0,0,0,0,0,1,0,1,0,0,Access denied
+0,0,0,0,0,1,1,0,0,0,Access denied
+0,0,0,0,0,1,1,1,0,0,Access denied
+0,0,0,0,1,0,0,0,0,0,Access denied
+0,0,0,0,1,0,0,1,0,0,Access denied
+0,0,0,0,1,0,1,0,0,0,Access denied
+0,0,0,0,1,0,1,1,0,0,Access denied
+0,0,0,0,1,1,0,0,0,0,Access denied
+0,0,0,0,1,1,0,1,0,0,Access denied
+0,0,0,0,1,1,1,0,0,0,Access denied
+0,0,0,0,1,1,1,1,0,0,Access denied
+0,0,0,1,0,0,0,0,0,0,Access denied
+0,0,0,1,0,0,0,1,0,0,Access denied
+0,0,0,1,0,0,1,0,0,0,Access denied
+0,0,0,1,0,0,1,1,0,0,Access denied
+0,0,0,1,0,1,0,0,0,0,Access denied
+0,0,0,1,0,1,0,1,0,0,Access denied
+0,0,0,1,0,1,1,0,0,0,Access denied
+0,0,0,1,0,1,1,1,0,0,Access denied
+0,0,0,1,1,0,0,0,0,0,Access denied
+0,0,0,1,1,0,0,1,0,0,Access denied
+0,0,0,1,1,0,1,0,0,0,Access denied
+0,0,0,1,1,0,1,1,0,0,Access denied
+0,0,0,1,1,1,0,0,0,0,Access denied
+0,0,0,1,1,1,0,1,0,0,Access denied
+0,0,0,1,1,1,1,0,0,0,Access denied
+0,0,0,1,1,1,1,1,0,0,Access denied
+0,0,1,0,0,0,0,0,0,0,Access denied
+0,0,1,0,0,0,0,1,0,0,Access denied
+0,0,1,0,0,0,1,0,0,0,Access denied
+0,0,1,0,0,0,1,1,0,0,Access denied
+0,0,1,0,0,1,0,0,0,0,Access denied
+0,0,1,0,0,1,0,1,0,0,Access denied
+0,0,1,0,0,1,1,0,0,0,Access denied
+0,0,1,0,0,1,1,1,0,0,Access denied
+0,0,1,0,1,0,0,0,0,0,Access denied
+0,0,1,0,1,0,0,1,0,0,Access denied
+0,0,1,0,1,0,1,0,0,0,Access denied
+0,0,1,0,1,0,1,1,0,0,Access denied
+0,0,1,0,1,1,0,0,0,0,Access denied
+0,0,1,0,1,1,0,1,0,0,Access denied
+0,0,1,0,1,1,1,0,0,0,Access denied
+0,0,1,0,1,1,1,1,0,0,Access denied
+0,0,1,1,0,0,0,0,0,0,Access denied
+0,0,1,1,0,0,0,1,0,0,Access denied
+0,0,1,1,0,0,1,0,0,0,Access denied
+0,0,1,1,0,0,1,1,0,0,Access denied
+0,0,1,1,0,1,0,0,0,0,Access denied
+0,0,1,1,0,1,0,1,0,0,Access denied
+0,0,1,1,0,1,1,0,0,0,Access denied
+0,0,1,1,0,1,1,1,0,0,Access denied
+0,0,1,1,1,0,0,0,0,0,Access denied
+0,0,1,1,1,0,0,1,0,0,Access denied
+0,0,1,1,1,0,1,0,0,0,Access denied
+0,0,1,1,1,0,1,1,0,0,Access denied
+0,0,1,1,1,1,0,0,0,0,Access denied
+0,0,1,1,1,1,0,1,0,0,Access denied
+0,0,1,1,1,1,1,0,0,0,Access denied
+0,0,1,1,1,1,1,1,0,0,Access denied
+0,1,0,0,0,0,0,0,0,0,Access denied
+0,1,0,0,0,0,0,1,0,0,Access denied
+0,1,0,0,0,0,1,0,0,0,Access denied
+0,1,0,0,0,0,1,1,0,0,Access denied
+0,1,0,0,0,1,0,0,0,0,Access denied
+0,1,0,0,0,1,0,1,0,0,Access denied
+0,1,0,0,0,1,1,0,0,0,Access denied
+0,1,0,0,0,1,1,1,0,0,Access denied
+0,1,0,0,1,0,0,0,0,0,Access denied
+0,1,0,0,1,0,0,1,0,0,Access denied
+0,1,0,0,1,0,1,0,0,0,Access denied
+0,1,0,0,1,0,1,1,0,0,Access denied
+0,1,0,0,1,1,0,0,0,0,Access denied
+0,1,0,0,1,1,0,1,0,0,Access denied
+0,1,0,0,1,1,1,0,0,0,Access denied
+0,1,0,0,1,1,1,1,0,0,Access denied
+0,1,0,1,0,0,0,0,0,0,Access denied
+0,1,0,1,0,0,0,1,0,0,Access denied
+0,1,0,1,0,0,1,0,0,0,Access denied
+0,1,0,1,0,0,1,1,0,0,Access denied
+0,1,0,1,0,1,0,0,0,0,Access denied
+0,1,0,1,0,1,0,1,0,0,Access denied
+0,1,0,1,0,1,1,0,0,0,Access denied
+0,1,0,1,0,1,1,1,0,0,Access denied
+0,1,0,1,1,0,0,0,0,0,Access denied
+0,1,0,1,1,0,0,1,0,0,Access denied
+0,1,0,1,1,0,1,0,0,0,Access denied
+0,1,0,1,1,0,1,1,0,0,Access denied
+0,1,0,1,1,1,0,0,0,0,Access denied
+0,1,0,1,1,1,0,1,0,0,Access denied
+0,1,0,1,1,1,1,0,0,0,Access denied
+0,1,0,1,1,1,1,1,0,0,Access denied
+0,1,1,0,0,0,0,0,0,0,Access denied
+0,1,1,0,0,0,0,1,0,0,Access denied
+0,1,1,0,0,0,1,0,0,0,Access denied
+0,1,1,0,0,0,1,1,0,0,Access denied
+0,1,1,0,0,1,0,0,0,0,Access denied
+0,1,1,0,0,1,0,1,0,0,Access denied
+0,1,1,0,0,1,1,0,0,0,Access denied
+0,1,1,0,0,1,1,1,0,0,Access denied
+0,1,1,0,1,0,0,0,0,0,Access denied
+0,1,1,0,1,0,0,1,0,0,Access denied
+0,1,1,0,1,0,1,0,0,0,Access denied
+0,1,1,0,1,0,1,1,0,0,Access denied
+0,1,1,0,1,1,0,0,0,0,Access denied
+0,1,1,0,1,1,0,1,0,0,Access denied
+0,1,1,0,1,1,1,0,0,0,Access denied
+0,1,1,0,1,1,1,1,0,0,Access denied
+0,1,1,1,0,0,0,0,0,0,Access denied
+0,1,1,1,0,0,0,1,0,0,Access denied
+0,1,1,1,0,0,1,0,0,0,Access denied
+0,1,1,1,0,0,1,1,0,0,Access denied
+0,1,1,1,0,1,0,0,0,0,Access denied
+0,1,1,1,0,1,0,1,0,0,Access denied
+0,1,1,1,0,1,1,0,0,0,Access denied
+0,1,1,1,0,1,1,1,0,0,Access denied
+0,1,1,1,1,0,0,0,0,0,Access denied
+0,1,1,1,1,0,0,1,0,0,Access denied
+0,1,1,1,1,0,1,0,0,0,Access denied
+0,1,1,1,1,0,1,1,0,0,Access denied
+0,1,1,1,1,1,0,0,0,0,Access denied
+0,1,1,1,1,1,0,1,0,0,Access denied
+0,1,1,1,1,1,1,0,0,0,Access denied
+0,1,1,1,1,1,1,1,0,0,Access denied
+1,0,0,0,0,0,0,0,0,0,Version is not the current authorized target
+1,0,0,0,0,0,0,1,0,0,Version is not the current authorized target
+1,0,0,0,0,0,1,0,0,0,Version is not the current authorized target
+1,0,0,0,0,0,1,1,0,0,Version is not the current authorized target
+1,0,0,0,0,1,0,0,0,0,Version is not the current authorized target
+1,0,0,0,0,1,0,1,0,0,Version is not the current authorized target
+1,0,0,0,0,1,1,0,0,0,Version is not the current authorized target
+1,0,0,0,0,1,1,1,0,0,Version is not the current authorized target
+1,0,0,0,1,0,0,0,0,0,Version is not the current authorized target
+1,0,0,0,1,0,0,1,0,0,Version is not the current authorized target
+1,0,0,0,1,0,1,0,0,0,Version is not the current authorized target
+1,0,0,0,1,0,1,1,0,0,Version is not the current authorized target
+1,0,0,0,1,1,0,0,0,0,Version is not the current authorized target
+1,0,0,0,1,1,0,1,0,0,Version is not the current authorized target
+1,0,0,0,1,1,1,0,0,0,Version is not the current authorized target
+1,0,0,0,1,1,1,1,0,0,Version is not the current authorized target
+1,0,0,1,0,0,0,0,0,0,Version is not the current authorized target
+1,0,0,1,0,0,0,1,0,0,Version is not the current authorized target
+1,0,0,1,0,0,1,0,0,0,Version is not the current authorized target
+1,0,0,1,0,0,1,1,0,0,Version is not the current authorized target
+1,0,0,1,0,1,0,0,0,0,Version is not the current authorized target
+1,0,0,1,0,1,0,1,0,0,Version is not the current authorized target
+1,0,0,1,0,1,1,0,0,0,Version is not the current authorized target
+1,0,0,1,0,1,1,1,0,0,Version is not the current authorized target
+1,0,0,1,1,0,0,0,0,0,Version is not the current authorized target
+1,0,0,1,1,0,0,1,0,0,Version is not the current authorized target
+1,0,0,1,1,0,1,0,0,0,Version is not the current authorized target
+1,0,0,1,1,0,1,1,0,0,Version is not the current authorized target
+1,0,0,1,1,1,0,0,0,0,Version is not the current authorized target
+1,0,0,1,1,1,0,1,0,0,Version is not the current authorized target
+1,0,0,1,1,1,1,0,0,0,Version is not the current authorized target
+1,0,0,1,1,1,1,1,0,0,Version is not the current authorized target
+1,0,1,0,0,0,0,0,0,0,Version is not the current authorized target
+1,0,1,0,0,0,0,1,0,0,Version is not the current authorized target
+1,0,1,0,0,0,1,0,0,0,Version is not the current authorized target
+1,0,1,0,0,0,1,1,0,0,Version is not the current authorized target
+1,0,1,0,0,1,0,0,0,0,Version is not the current authorized target
+1,0,1,0,0,1,0,1,0,0,Version is not the current authorized target
+1,0,1,0,0,1,1,0,0,0,Version is not the current authorized target
+1,0,1,0,0,1,1,1,0,0,Version is not the current authorized target
+1,0,1,0,1,0,0,0,0,0,Version is not the current authorized target
+1,0,1,0,1,0,0,1,0,0,Version is not the current authorized target
+1,0,1,0,1,0,1,0,0,0,Version is not the current authorized target
+1,0,1,0,1,0,1,1,0,0,Version is not the current authorized target
+1,0,1,0,1,1,0,0,0,0,Version is not the current authorized target
+1,0,1,0,1,1,0,1,0,0,Version is not the current authorized target
+1,0,1,0,1,1,1,0,0,0,Version is not the current authorized target
+1,0,1,0,1,1,1,1,0,0,Version is not the current authorized target
+1,0,1,1,0,0,0,0,0,0,Version is not the current authorized target
+1,0,1,1,0,0,0,1,0,0,Version is not the current authorized target
+1,0,1,1,0,0,1,0,0,0,Version is not the current authorized target
+1,0,1,1,0,0,1,1,0,0,Version is not the current authorized target
+1,0,1,1,0,1,0,0,0,0,Version is not the current authorized target
+1,0,1,1,0,1,0,1,0,0,Version is not the current authorized target
+1,0,1,1,0,1,1,0,0,0,Version is not the current authorized target
+1,0,1,1,0,1,1,1,0,0,Version is not the current authorized target
+1,0,1,1,1,0,0,0,0,0,Version is not the current authorized target
+1,0,1,1,1,0,0,1,0,0,Version is not the current authorized target
+1,0,1,1,1,0,1,0,0,0,Version is not the current authorized target
+1,0,1,1,1,0,1,1,0,0,Version is not the current authorized target
+1,0,1,1,1,1,0,0,0,0,Version is not the current authorized target
+1,0,1,1,1,1,0,1,0,0,Version is not the current authorized target
+1,0,1,1,1,1,1,0,0,0,Version is not the current authorized target
+1,0,1,1,1,1,1,1,0,0,Version is not the current authorized target
+1,1,0,0,0,0,0,0,0,0,Version has not been approved
+1,1,0,0,0,0,0,1,0,0,Version has not been approved
+1,1,0,0,0,0,1,0,0,0,Version has not been approved
+1,1,0,0,0,0,1,1,0,0,Version has not been approved
+1,1,0,0,0,1,0,0,0,0,Version has not been approved
+1,1,0,0,0,1,0,1,0,0,Version has not been approved
+1,1,0,0,0,1,1,0,0,0,Version has not been approved
+1,1,0,0,0,1,1,1,0,0,Version has not been approved
+1,1,0,0,1,0,0,0,0,0,Version has not been approved
+1,1,0,0,1,0,0,1,0,0,Version has not been approved
+1,1,0,0,1,0,1,0,0,0,Version has not been approved
+1,1,0,0,1,0,1,1,0,0,Version has not been approved
+1,1,0,0,1,1,0,0,0,0,Version has not been approved
+1,1,0,0,1,1,0,1,0,0,Version has not been approved
+1,1,0,0,1,1,1,0,0,0,Version has not been approved
+1,1,0,0,1,1,1,1,0,0,Version has not been approved
+1,1,0,1,0,0,0,0,0,0,Version has not been approved
+1,1,0,1,0,0,0,1,0,0,Version has not been approved
+1,1,0,1,0,0,1,0,0,0,Version has not been approved
+1,1,0,1,0,0,1,1,0,0,Version has not been approved
+1,1,0,1,0,1,0,0,0,0,Version has not been approved
+1,1,0,1,0,1,0,1,0,0,Version has not been approved
+1,1,0,1,0,1,1,0,0,0,Version has not been approved
+1,1,0,1,0,1,1,1,0,0,Version has not been approved
+1,1,0,1,1,0,0,0,0,0,Version has not been approved
+1,1,0,1,1,0,0,1,0,0,Version has not been approved
+1,1,0,1,1,0,1,0,0,0,Version has not been approved
+1,1,0,1,1,0,1,1,0,0,Version has not been approved
+1,1,0,1,1,1,0,0,0,0,Version has not been approved
+1,1,0,1,1,1,0,1,0,0,Version has not been approved
+1,1,0,1,1,1,1,0,0,0,Version has not been approved
+1,1,0,1,1,1,1,1,0,0,Version has not been approved
+1,1,1,0,0,0,0,0,0,0,Exact-version scan evidence required
+1,1,1,0,0,0,0,1,0,0,Exact-version scan evidence required
+1,1,1,0,0,0,1,0,0,0,Exact-version scan evidence required
+1,1,1,0,0,0,1,1,0,0,Exact-version scan evidence required
+1,1,1,0,0,1,0,0,0,0,Exact-version scan evidence required
+1,1,1,0,0,1,0,1,0,0,Exact-version scan evidence required
+1,1,1,0,0,1,1,0,0,0,Exact-version scan evidence required
+1,1,1,0,0,1,1,1,0,0,Exact-version scan evidence required
+1,1,1,0,1,0,0,0,0,0,Exact-version scan evidence required
+1,1,1,0,1,0,0,1,0,0,Exact-version scan evidence required
+1,1,1,0,1,0,1,0,0,0,Exact-version scan evidence required
+1,1,1,0,1,0,1,1,0,0,Exact-version scan evidence required
+1,1,1,0,1,1,0,0,0,0,Exact-version scan evidence required
+1,1,1,0,1,1,0,1,0,0,Exact-version scan evidence required
+1,1,1,0,1,1,1,0,0,0,Exact-version scan evidence required
+1,1,1,0,1,1,1,1,0,0,Exact-version scan evidence required
+1,1,1,1,0,0,0,0,0,0,Exact-version scan evidence required
+1,1,1,1,0,0,0,1,0,0,Exact-version scan evidence required
+1,1,1,1,0,0,1,0,0,0,Exact-version scan evidence required
+1,1,1,1,0,0,1,1,0,0,Exact-version scan evidence required
+1,1,1,1,0,1,0,0,0,0,Exact-version scan evidence required
+1,1,1,1,0,1,0,1,0,0,Exact-version scan evidence required
+1,1,1,1,0,1,1,0,0,0,Exact-version scan evidence required
+1,1,1,1,0,1,1,1,0,0,Exact-version scan evidence required
+1,1,1,1,1,0,0,0,0,0,Scanner policy changed
+1,1,1,1,1,0,0,1,0,0,Scanner policy changed
+1,1,1,1,1,0,1,0,0,0,Scanner policy changed
+1,1,1,1,1,0,1,1,0,0,Scanner policy changed
+1,1,1,1,1,1,0,0,0,0,Integrity verification required
+1,1,1,1,1,1,0,1,0,0,Integrity verification required
+1,1,1,1,1,1,1,0,0,0,Security evidence expired
+1,1,1,1,1,1,1,1,1,1,allow

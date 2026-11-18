@@ -1,0 +1,8 @@
+{
+  "seed": 17,
+  "files": 200,
+  "templates": 20,
+  "schedules": 10,
+  "dataset_sha256": "92d7d18021c2798044f557b70ed509f5c9e580f5751c2da25dcadd4a92c255b3",
+  "provenance": "synthetic harmless lifecycle data"
+}

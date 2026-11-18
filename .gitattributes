@@ -1,0 +1,5 @@
+*.pdf binary
+*.png binary
+*.pt binary
+# Preserve exact fixture bytes used by the dataset hashes.
+research/fixtures/** -text

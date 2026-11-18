@@ -1,0 +1,44 @@
+{
+  "dataset": "artifacts/dataset/workload.jsonl",
+  "security_conformance_passed": 20,
+  "security_conformance_total": 20,
+  "results": {
+    "fifo": {
+      "mean_wait_seconds": 1144.9012631683447,
+      "p95_wait_seconds": 4120.5985073876545,
+      "deadline_misses": 1684,
+      "worker_utilization": 0.31108784461519784,
+      "peak_backlog": 1492,
+      "verification_seconds": 13052.450705578087,
+      "jobs": 3600,
+      "provenance": "discrete-event simulation; no live object-store or scanner operations"
+    },
+    "edf": {
+      "mean_wait_seconds": 1144.9012631683447,
+      "p95_wait_seconds": 4120.5985073876545,
+      "deadline_misses": 1684,
+      "worker_utilization": 0.31108784461519784,
+      "peak_backlog": 1492,
+      "verification_seconds": 13052.450705578087,
+      "jobs": 3600,
+      "provenance": "discrete-event simulation; no live object-store or scanner operations"
+    },
+    "rule": {
+      "mean_wait_seconds": 1144.8689999234036,
+      "p95_wait_seconds": 4120.593522753032,
+      "deadline_misses": 1684,
+      "worker_utilization": 0.3110879185310266,
+      "peak_backlog": 1492,
+      "verification_seconds": 13052.450705578087,
+      "jobs": 3600,
+      "provenance": "discrete-event simulation; no live object-store or scanner operations"
+    }
+  },
+  "execution_seconds": 10.615111500024796,
+  "cpu_seconds": 7.268029,
+  "limitations": [
+    "Conformance tests exercise a pure gateway predicate, not concurrent PostgreSQL transactions.",
+    "ML scheduler and integrity-policy comparisons require further live experiments.",
+    "Synthetic durations are generated targets, not measured scans."
+  ]
+}

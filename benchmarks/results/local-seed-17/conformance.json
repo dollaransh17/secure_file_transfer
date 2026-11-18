@@ -1,0 +1,122 @@
+[
+  {
+    "scenario": "new_version_pending",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "delayed_scan",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "revocation",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "duplicate",
+    "expected_release": true,
+    "actual_release": true,
+    "pass": true
+  },
+  {
+    "scenario": "out_of_order",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "scanner_timeout",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "worker_crash",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "expiry",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "policy_change",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "simultaneous_downloads",
+    "expected_release": true,
+    "actual_release": true,
+    "pass": true
+  },
+  {
+    "scenario": "queue_load",
+    "expected_release": true,
+    "actual_release": true,
+    "pass": true
+  },
+  {
+    "scenario": "popularity_shift",
+    "expected_release": true,
+    "actual_release": true,
+    "pass": true
+  },
+  {
+    "scenario": "congestion",
+    "expected_release": true,
+    "actual_release": true,
+    "pass": true
+  },
+  {
+    "scenario": "concurrent_versions",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "cross_tenant",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "integrity_mismatch",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "unsupported",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "late_policy_result",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "retry_exhaustion",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  },
+  {
+    "scenario": "starvation",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true
+  }
+]

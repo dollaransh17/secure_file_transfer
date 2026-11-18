@@ -1,0 +1,516 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Prooflane S3/SQS hybrid research mode. App, DB, scanner and workers stay local. Review costs before deployment.",
+  "Parameters": {
+    "ProjectName": {
+      "Type": "String",
+      "Default": "prooflane-lab",
+      "AllowedPattern": "[a-z][a-z0-9-]{2,23}",
+      "Description": "Project tag only. Storage names use the account and full unique stack ID suffix."
+    }
+  },
+  "Resources": {
+    "EventDeadLetter": {
+      "Type": "AWS::SQS::Queue",
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain",
+      "Properties": {
+        "SqsManagedSseEnabled": true,
+        "MessageRetentionPeriod": 1209600,
+        "RedriveAllowPolicy": {
+          "redrivePermission": "byQueue",
+          "sourceQueueArns": [
+            {
+              "Fn::Sub": [
+                "arn:${AWS::Partition}:sqs:${AWS::Region}:${AWS::AccountId}:prooflane-events-${AWS::AccountId}-${StackSuffix}",
+                {
+                  "StackSuffix": {
+                    "Fn::Select": [
+                      2,
+                      {
+                        "Fn::Split": [
+                          "/",
+                          {
+                            "Ref": "AWS::StackId"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": {
+              "Ref": "ProjectName"
+            }
+          }
+        ]
+      }
+    },
+    "StorageEvents": {
+      "Type": "AWS::SQS::Queue",
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain",
+      "Properties": {
+        "QueueName": {
+          "Fn::Sub": [
+            "prooflane-events-${AWS::AccountId}-${StackSuffix}",
+            {
+              "StackSuffix": {
+                "Fn::Select": [
+                  2,
+                  {
+                    "Fn::Split": [
+                      "/",
+                      {
+                        "Ref": "AWS::StackId"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "SqsManagedSseEnabled": true,
+        "MessageRetentionPeriod": 345600,
+        "VisibilityTimeout": 180,
+        "ReceiveMessageWaitTimeSeconds": 20,
+        "RedrivePolicy": {
+          "deadLetterTargetArn": {
+            "Fn::GetAtt": [
+              "EventDeadLetter",
+              "Arn"
+            ]
+          },
+          "maxReceiveCount": 5
+        },
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": {
+              "Ref": "ProjectName"
+            }
+          }
+        ]
+      }
+    },
+    "StorageQueuePolicy": {
+      "Type": "AWS::SQS::QueuePolicy",
+      "Properties": {
+        "Queues": [
+          {
+            "Ref": "StorageEvents"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "OnlyThisBucketMayPublish",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "s3.amazonaws.com"
+              },
+              "Action": "sqs:SendMessage",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "StorageEvents",
+                  "Arn"
+                ]
+              },
+              "Condition": {
+                "ArnEquals": {
+                  "aws:SourceArn": {
+                    "Fn::Sub": [
+                      "arn:${AWS::Partition}:s3:::prooflane-${AWS::AccountId}-${StackSuffix}",
+                      {
+                        "StackSuffix": {
+                          "Fn::Select": [
+                            2,
+                            {
+                              "Fn::Split": [
+                                "/",
+                                {
+                                  "Ref": "AWS::StackId"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "StringEquals": {
+                  "aws:SourceAccount": {
+                    "Ref": "AWS::AccountId"
+                  }
+                }
+              }
+            },
+            {
+              "Sid": "RequireTLS",
+              "Effect": "Deny",
+              "Principal": "*",
+              "Action": "sqs:*",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "StorageEvents",
+                  "Arn"
+                ]
+              },
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": "false"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "Files": {
+      "Type": "AWS::S3::Bucket",
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain",
+      "DependsOn": "StorageQueuePolicy",
+      "Properties": {
+        "BucketName": {
+          "Fn::Sub": [
+            "prooflane-${AWS::AccountId}-${StackSuffix}",
+            {
+              "StackSuffix": {
+                "Fn::Select": [
+                  2,
+                  {
+                    "Fn::Split": [
+                      "/",
+                      {
+                        "Ref": "AWS::StackId"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "VersioningConfiguration": {
+          "Status": "Enabled"
+        },
+        "OwnershipControls": {
+          "Rules": [
+            {
+              "ObjectOwnership": "BucketOwnerEnforced"
+            }
+          ]
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "aws:kms"
+              },
+              "BucketKeyEnabled": true
+            }
+          ]
+        },
+        "NotificationConfiguration": {
+          "QueueConfigurations": [
+            {
+              "Event": "s3:ObjectCreated:*",
+              "Queue": {
+                "Fn::GetAtt": [
+                  "StorageEvents",
+                  "Arn"
+                ]
+              }
+            }
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": {
+              "Ref": "ProjectName"
+            }
+          },
+          {
+            "Key": "Mode",
+            "Value": "local-app-s3-sqs"
+          }
+        ]
+      }
+    },
+    "FilesPolicy": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "Files"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "RequireTLS",
+              "Effect": "Deny",
+              "Principal": "*",
+              "Action": "s3:*",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "Files",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Sub": "${Files.Arn}/*"
+                }
+              ],
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": "false"
+                }
+              }
+            },
+            {
+              "Sid": "RequireExplicitKMS",
+              "Effect": "Deny",
+              "Principal": "*",
+              "Action": "s3:PutObject",
+              "Resource": {
+                "Fn::Sub": "${Files.Arn}/*"
+              },
+              "Condition": {
+                "StringNotEquals": {
+                  "s3:x-amz-server-side-encryption": "aws:kms"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "ApiStoragePolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "Description": "Prooflane hybrid API storage permissions; attach deliberately to an existing identity",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetBucketVersioning"
+              ],
+              "Resource": {
+                "Fn::GetAtt": [
+                  "Files",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObjectVersion",
+                "s3:PutObject"
+              ],
+              "Resource": {
+                "Fn::Sub": "${Files.Arn}/*"
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+              ],
+              "Resource": {
+                "Fn::Sub": "arn:${AWS::Partition}:kms:${AWS::Region}:${AWS::AccountId}:key/*"
+              },
+              "Condition": {
+                "StringEquals": {
+                  "kms:ViaService": {
+                    "Fn::Sub": "s3.${AWS::Region}.${AWS::URLSuffix}"
+                  },
+                  "kms:CallerAccount": {
+                    "Ref": "AWS::AccountId"
+                  }
+                },
+                "StringLike": {
+                  "kms:EncryptionContext:aws:s3:arn": [
+                    {
+                      "Fn::GetAtt": [
+                        "Files",
+                        "Arn"
+                      ]
+                    },
+                    {
+                      "Fn::Sub": "${Files.Arn}/*"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "WorkerStoragePolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "Description": "Prooflane hybrid worker storage/event consumer permissions; attach deliberately to an existing identity",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetBucketVersioning"
+              ],
+              "Resource": {
+                "Fn::GetAtt": [
+                  "Files",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObjectVersion"
+              ],
+              "Resource": {
+                "Fn::Sub": "${Files.Arn}/*"
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "kms:Decrypt"
+              ],
+              "Resource": {
+                "Fn::Sub": "arn:${AWS::Partition}:kms:${AWS::Region}:${AWS::AccountId}:key/*"
+              },
+              "Condition": {
+                "StringEquals": {
+                  "kms:ViaService": {
+                    "Fn::Sub": "s3.${AWS::Region}.${AWS::URLSuffix}"
+                  },
+                  "kms:CallerAccount": {
+                    "Ref": "AWS::AccountId"
+                  }
+                },
+                "StringLike": {
+                  "kms:EncryptionContext:aws:s3:arn": [
+                    {
+                      "Fn::GetAtt": [
+                        "Files",
+                        "Arn"
+                      ]
+                    },
+                    {
+                      "Fn::Sub": "${Files.Arn}/*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "sqs:ReceiveMessage",
+                "sqs:DeleteMessage",
+                "sqs:ChangeMessageVisibility",
+                "sqs:GetQueueAttributes"
+              ],
+              "Resource": {
+                "Fn::GetAtt": [
+                  "StorageEvents",
+                  "Arn"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "Bucket": {
+      "Description": "Set S3_BUCKET to this generated private bucket name.",
+      "Value": {
+        "Ref": "Files"
+      }
+    },
+    "BucketArn": {
+      "Description": "ARN of the private application storage bucket.",
+      "Value": {
+        "Fn::GetAtt": [
+          "Files",
+          "Arn"
+        ]
+      }
+    },
+    "Region": {
+      "Description": "Set AWS_REGION to this region.",
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "ApiStoragePolicyArn": {
+      "Description": "Unattached API policy. Review the target identity before attachment.",
+      "Value": {
+        "Ref": "ApiStoragePolicy"
+      }
+    },
+    "WorkerStoragePolicyArn": {
+      "Description": "Unattached worker policy: exact-version S3 reads and SQS consumption. No S3 writes/deletes.",
+      "Value": {
+        "Ref": "WorkerStoragePolicy"
+      }
+    },
+    "StorageEventQueueUrl": {
+      "Description": "Set STORAGE_EVENT_QUEUE_URL in local worker configuration.",
+      "Value": {
+        "Ref": "StorageEvents"
+      }
+    },
+    "StorageEventQueueArn": {
+      "Description": "Only this bucket may publish S3 events to this queue.",
+      "Value": {
+        "Fn::GetAtt": [
+          "StorageEvents",
+          "Arn"
+        ]
+      }
+    },
+    "DeadLetterQueueUrl": {
+      "Description": "Inspect failed notifications here; manual recovery requires administrator review.",
+      "Value": {
+        "Ref": "EventDeadLetter"
+      }
+    },
+    "EncryptionKeyId": {
+      "Description": "AWS-managed key alias; no customer-managed KMS key is created.",
+      "Value": "alias/aws/s3"
+    },
+    "BucketKeysEnabled": {
+      "Description": "Set S3_BUCKET_KEY_ENABLED=true in the local backend configuration.",
+      "Value": "true"
+    }
+  }
+}

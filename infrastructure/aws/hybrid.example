@@ -1,0 +1,22 @@
+# Copy to artifacts/aws-hybrid.env and customize. No access keys go here.
+# Export these overrides AFTER loading any host-specific settings.
+ENVIRONMENT=development
+PUBLIC_ORIGIN=http://localhost:5174
+COOKIE_SECURE=false
+DATABASE_URL=postgresql+psycopg://prooflane:REPLACE_WITH_LOCAL_DB_PASSWORD@localhost:15432/prooflane
+DATABASE_HOST=
+REDIS_URL=redis://localhost:16379/0
+REDIS_HOST=
+CLAMAV_HOST=localhost
+CLAMAV_PORT=13310
+STORAGE_BACKEND=s3
+S3_ENDPOINT=
+S3_BUCKET=REPLACE_WITH_MINIMAL_STACK_BUCKET_OUTPUT
+AWS_REGION=us-east-1
+AWS_PROFILE=prooflane
+KMS_KEY_ID=alias/aws/s3
+S3_BUCKET_KEY_ENABLED=true
+# S3 notifications arrive here; workers reconcile them into PostgreSQL jobs.
+STORAGE_EVENT_QUEUE_URL=REPLACE_WITH_STORAGE_EVENT_QUEUE_URL_OUTPUT
+# API listens on 8001; the host Vite server proxies there.
+PROOFLANE_DEV_API_URL=http://127.0.0.1:8001

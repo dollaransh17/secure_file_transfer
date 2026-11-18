@@ -108,7 +108,7 @@ The host rebuilt web and reported the container healthy. Its expanded browser su
 
 The agent then brought native Chrome to the front, signed back into the retained disposable workspace and submitted a real question about its verification history. **Claude answered successfully without the blank page**, correctly identifying both verified versions and the most recent V2 approval. The UI displayed seven authorized event references and actual usage **1,954 input / 265 output tokens**. The successful answer was left visible in Chrome. This is separate from the four mocked-transport browser cases. The reference disclosure was not expanded and no native console/network trace was captured; one response does not establish general RAG correctness.
 
-Evidence: [`benchmarks/results/chat-recovery-20261116`](../benchmarks/results/chat-recovery-20261116/verification.json), including exact host browser/unit reports and a bounded native observation record. Deployment and the specific live chat retest are now complete. The earlier pending notes below are historical. The prior all-green 13-group run remains evidence for its revision; it was not rerun wholesale after this frontend-only correction. Full research/production acceptance remains incomplete.
+Evidence: `benchmarks/results/chat-recovery-20261116` (report retained in the local run archive), including exact host browser/unit reports and a bounded native observation record. Deployment and the specific live chat retest are now complete. The earlier pending notes below are historical. The prior all-green 13-group run remains evidence for its revision; it was not rerun wholesale after this frontend-only correction. Full research/production acceptance remains incomplete.
 
 ## Earlier native chat failure — 16 November 2026
 
@@ -120,7 +120,7 @@ A likely scroll-Promise/effect-cleanup compatibility defect was corrected in sou
 
 **All 13 existing test groups passed in host run `20261116T091240Z-a8d9fb5a`: 0 failed, 0 blocked.** The agent inspected the saved logs/report, browser diagnostics and representative screenshots. This closes the test-origin and file-detail readiness regressions from the earlier failed consolidated run. Full research and production acceptance remain incomplete.
 
-Exact reports, logs, live smoke records and session-recovery screenshots are preserved under [`benchmarks/results/consolidated-pass-20261116`](../benchmarks/results/consolidated-pass-20261116/verification.json). SHA-256 provenance is recorded in `verification.json`. The original report is `artifacts/test-runs/20261116T091240Z-a8d9fb5a/report.json`.
+Exact reports, logs, live smoke records and session-recovery screenshots are preserved under `benchmarks/results/consolidated-pass-20261116` (report retained in the local run archive). SHA-256 provenance is recorded in `verification.json`. The original report is `artifacts/test-runs/20261116T091240Z-a8d9fb5a/report.json`.
 
 | Check | Actual result in this consolidated run |
 |---|---|
